@@ -24,7 +24,7 @@
 	[super viewDidLoad];
 	
 	NSError *error = nil;
-
+	
 	if (![self blessHelperWithLabel:@kHelperIdentifier error:&error])
 	{
 		NSString *errorString = [NSString stringWithFormat:@"Something went wrong! %@ / %d", [error domain], (int) [error code] ];
@@ -61,9 +61,9 @@
 	AuthorizationItem authItem		= { kSMRightBlessPrivilegedHelper, 0, NULL, 0 };
 	AuthorizationRights authRights	= { 1, &authItem };
 	AuthorizationFlags flags        =	kAuthorizationFlagDefaults |
-										kAuthorizationFlagInteractionAllowed |
-										kAuthorizationFlagPreAuthorize |
-										kAuthorizationFlagExtendRights;
+	kAuthorizationFlagInteractionAllowed |
+	kAuthorizationFlagPreAuthorize |
+	kAuthorizationFlagExtendRights;
 	
 	/* Obtain the right to install our privileged helper tool (kSMRightBlessPrivilegedHelper). */
 	OSStatus status = AuthorizationCreate( &authRights, kAuthorizationEmptyEnvironment, flags, &_authRef);
@@ -100,62 +100,41 @@
 
 - (void)setRepresentedObject:(id)representedObject {
 	[super setRepresentedObject:representedObject];
-
+	
 	// Update the view, if already loaded.
 }
-- (IBAction)stopBackup:(id)sender {
+
+- (int)sendMessageToHelper:(enum TimeMachineSchedulerCommand) command
+{
 	struct TimeMachineSchedullerMessage messageOut, messageIn;
-	initMessage(messageOut, TMS_STOP_BACKUP);
+	initMessage(messageOut, command);
 	if(sendMessage(&messageOut, &messageIn)) {
-		NSLog(@"Error send message");
+		exit(1);
 	}
 	int result;
 	memcpy(&result, messageIn.data, sizeof(result));
-	NSLog(@"Helper PID is %i", result);
+	NSLog(@"result is %i", result);
+	return result;
+}
+
+- (IBAction)stopBackup:(id)sender {
+	[self sendMessageToHelper:TMS_STOP_BACKUP];
 }
 
 - (IBAction)forceBackup:(id)sender {
-	struct TimeMachineSchedullerMessage messageOut, messageIn;
-	initMessage(messageOut, TMS_FORCE_BACKUP);
-	if(sendMessage(&messageOut, &messageIn)) {
-		NSLog(@"Error send message");
-	}
-	int result;
-	memcpy(&result, messageIn.data, sizeof(result));
-	NSLog(@"Helper PID is %i", result);
+	[self sendMessageToHelper:TMS_FORCE_BACKUP];
 }
 
 - (IBAction)setTimeMachineInterval:(id)sender {
-	struct TimeMachineSchedullerMessage messageOut, messageIn;
-	initMessage(messageOut, TMS_PID);
-	if(sendMessage(&messageOut, &messageIn)) {
-		NSLog(@"Error send message");
-	}
-	int pid;
-	memcpy(&pid, messageIn.data, sizeof(pid));
-	NSLog(@"Helper PID is %i", pid);
+	[self sendMessageToHelper:TMS_PID];
 }
 
 - (IBAction)enableBackup:(id)sender {
-	struct TimeMachineSchedullerMessage messageOut, messageIn;
-	initMessage(messageOut, TMS_ENABLE_BACKAUP);
-	if(sendMessage(&messageOut, &messageIn)) {
-		NSLog(@"Error send message");
-	}
-	int result;
-	memcpy(&result, messageIn.data, sizeof(result));
-	NSLog(@"Helper PID is %i", result);
+	[self sendMessageToHelper:TMS_ENABLE_BACKAUP];
 }
 
 - (IBAction)disableBackup:(id)sender {
-	struct TimeMachineSchedullerMessage messageOut, messageIn;
-	initMessage(messageOut, TMS_DISABLE_BACKAUP);
-	if(sendMessage(&messageOut, &messageIn)) {
-		NSLog(@"Error send message");
-	}
-	int result;
-	memcpy(&result, messageIn.data, sizeof(result));
-	NSLog(@"Helper PID is %i", result);
+	[self sendMessageToHelper:TMS_DISABLE_BACKAUP];
 }
 
 @end
