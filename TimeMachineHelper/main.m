@@ -129,6 +129,30 @@ int respondToRequest() {
 				memcpy(messageOut.data, &pid, messageOut.dataSize);
 				break;
 			}
+			case TMS_ENABLE_BACKAUP: {
+				int result = system("tmutil enable");
+				messageOut.dataSize = sizeof(result);
+				memcpy(messageOut.data, &result, messageOut.dataSize);
+				break;
+			}
+			case TMS_DISABLE_BACKAUP: {
+				int result = system("tmutil disable");
+				messageOut.dataSize = sizeof(result);
+				memcpy(messageOut.data, &result, messageOut.dataSize);
+				break;
+			}
+			case TMS_FORCE_BACKUP : {
+				int result = system("tmutil startbackup");
+				messageOut.dataSize = sizeof(result);
+				memcpy(messageOut.data, &result, messageOut.dataSize);
+				break;
+			}
+			case TMS_STOP_BACKUP : {
+				int result = system("tmutil stopbackup");
+				messageOut.dataSize = sizeof(result);
+				memcpy(messageOut.data, &result, messageOut.dataSize);
+				break;
+			}
 			default:
 				syslog(LOG_NOTICE, "Unknown command: %hhd\n", messageIn.command);
 				char* message = "Unknown command!";

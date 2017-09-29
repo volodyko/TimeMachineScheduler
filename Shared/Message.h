@@ -22,6 +22,10 @@ enum TimeMachineSchedulerCommand
 	TMS_Error = 0,
 	TMS_Version = 1,
 	TMS_PID = 2,
+	TMS_ENABLE_BACKAUP = 3,
+	TMS_DISABLE_BACKAUP = 4,
+	TMS_FORCE_BACKUP = 5,
+	TMS_STOP_BACKUP = 6
 };
 
 //This command structure version

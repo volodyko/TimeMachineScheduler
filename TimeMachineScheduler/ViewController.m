@@ -103,6 +103,27 @@
 
 	// Update the view, if already loaded.
 }
+- (IBAction)stopBackup:(id)sender {
+	struct TimeMachineSchedullerMessage messageOut, messageIn;
+	initMessage(messageOut, TMS_STOP_BACKUP);
+	if(sendMessage(&messageOut, &messageIn)) {
+		NSLog(@"Error send message");
+	}
+	int result;
+	memcpy(&result, messageIn.data, sizeof(result));
+	NSLog(@"Helper PID is %i", result);
+}
+
+- (IBAction)forceBackup:(id)sender {
+	struct TimeMachineSchedullerMessage messageOut, messageIn;
+	initMessage(messageOut, TMS_FORCE_BACKUP);
+	if(sendMessage(&messageOut, &messageIn)) {
+		NSLog(@"Error send message");
+	}
+	int result;
+	memcpy(&result, messageIn.data, sizeof(result));
+	NSLog(@"Helper PID is %i", result);
+}
 
 - (IBAction)setTimeMachineInterval:(id)sender {
 	struct TimeMachineSchedullerMessage messageOut, messageIn;
@@ -113,6 +134,28 @@
 	int pid;
 	memcpy(&pid, messageIn.data, sizeof(pid));
 	NSLog(@"Helper PID is %i", pid);
+}
+
+- (IBAction)enableBackup:(id)sender {
+	struct TimeMachineSchedullerMessage messageOut, messageIn;
+	initMessage(messageOut, TMS_ENABLE_BACKAUP);
+	if(sendMessage(&messageOut, &messageIn)) {
+		NSLog(@"Error send message");
+	}
+	int result;
+	memcpy(&result, messageIn.data, sizeof(result));
+	NSLog(@"Helper PID is %i", result);
+}
+
+- (IBAction)disableBackup:(id)sender {
+	struct TimeMachineSchedullerMessage messageOut, messageIn;
+	initMessage(messageOut, TMS_DISABLE_BACKAUP);
+	if(sendMessage(&messageOut, &messageIn)) {
+		NSLog(@"Error send message");
+	}
+	int result;
+	memcpy(&result, messageIn.data, sizeof(result));
+	NSLog(@"Helper PID is %i", result);
 }
 
 @end
