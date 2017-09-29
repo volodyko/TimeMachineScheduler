@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D372A1B1F7E2B3B00F8D90D /* Message.c in Sources */ = {isa = PBXBuildFile; fileRef = 0D372A191F7E2B3B00F8D90D /* Message.c */; };
+		0D372A1C1F7E303800F8D90D /* Message.c in Sources */ = {isa = PBXBuildFile; fileRef = 0D372A191F7E2B3B00F8D90D /* Message.c */; };
 		D84F79811F7D47FB004C30D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D84F79801F7D47FB004C30D0 /* AppDelegate.m */; };
 		D84F79841F7D47FB004C30D0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D84F79831F7D47FB004C30D0 /* ViewController.m */; };
 		D84F79861F7D47FB004C30D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D84F79851F7D47FB004C30D0 /* Assets.xcassets */; };
@@ -52,6 +54,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0D372A191F7E2B3B00F8D90D /* Message.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Message.c; sourceTree = "<group>"; };
+		0D372A1A1F7E2B3B00F8D90D /* Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		D84F797C1F7D47FB004C30D0 /* TimeMachineScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeMachineScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D84F797F1F7D47FB004C30D0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D84F79801F7D47FB004C30D0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -92,9 +96,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D372A181F7E2B1B00F8D90D /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0D372A191F7E2B3B00F8D90D /* Message.c */,
+				0D372A1A1F7E2B3B00F8D90D /* Message.h */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		D84F79731F7D47FA004C30D0 = {
 			isa = PBXGroup;
 			children = (
+				0D372A181F7E2B1B00F8D90D /* Shared */,
 				D84F797E1F7D47FB004C30D0 /* TimeMachineScheduler */,
 				D84F79981F7D484C004C30D0 /* TimeMachineHelper */,
 				D84F797D1F7D47FB004C30D0 /* Products */,
@@ -244,6 +258,7 @@
 				D84F79841F7D47FB004C30D0 /* ViewController.m in Sources */,
 				D84F798C1F7D47FB004C30D0 /* main.m in Sources */,
 				D84F79811F7D47FB004C30D0 /* AppDelegate.m in Sources */,
+				0D372A1B1F7E2B3B00F8D90D /* Message.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D372A1C1F7E303800F8D90D /* Message.c in Sources */,
 				D84F799A1F7D484C004C30D0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,7 +404,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9AXZ3AGMPV;
+				DEVELOPMENT_TEAM = 8DB99J4S4D;
 				INFOPLIST_FILE = TimeMachineScheduler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = volodyko.TimeMachineScheduler;
@@ -405,7 +421,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9AXZ3AGMPV;
+				DEVELOPMENT_TEAM = 8DB99J4S4D;
 				INFOPLIST_FILE = TimeMachineScheduler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = volodyko.TimeMachineScheduler;
@@ -419,7 +435,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9AXZ3AGMPV;
+				DEVELOPMENT_TEAM = 8DB99J4S4D;
 				INFOPLIST_FILE = "$(SRCROOT)/TimeMachineHelper/Info.plist";
 				OTHER_LDFLAGS = (
 					"-sectcreate",
@@ -443,7 +459,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9AXZ3AGMPV;
+				DEVELOPMENT_TEAM = 8DB99J4S4D;
 				INFOPLIST_FILE = "$(SRCROOT)/TimeMachineHelper/Info.plist";
 				OTHER_LDFLAGS = (
 					"-sectcreate",

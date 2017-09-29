@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<!--
-   Lanchd.plist
-   TimeMachineScheduler
-
-   Created by Vladymyr Moskalyuk on 9/28/17.
-   Copyright (c) 2017 Vladymyr Moskalyuk. All rights reserved.
--->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-		<key>Label</key>
-		<string>com.volodyko.TimeMachineSchedulerHelper</string>
-    </dict>
+<dict>
+	<key>Label</key>
+	<string>com.volodyko.TimeMachineSchedulerHelper</string>
+	<key>Sockets</key>
+	<dict>
+		<key>MasterSocket</key>
+		<dict>
+			<key>SockFamily</key>
+			<string>Unix</string>
+			<key>SockPathMode</key>
+			<integer>438</integer>
+			<key>SockPathName</key>
+			<string>/var/run/com.volodyko.TimeMachineSchedulerHelper.socket</string>
+			<key>SockType</key>
+			<string>Stream</string>
+		</dict>
+	</dict>
+</dict>
 </plist>

@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import <ServiceManagement/ServiceManagement.h>
 #import <Security/Authorization.h>
+#import "Message.h"
 
 @interface ViewController()
 
@@ -23,18 +24,15 @@
 	[super viewDidLoad];
 	
 	NSError *error = nil;
-	OSStatus status = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, kAuthorizationFlagDefaults, &self->_authRef);
-	if (status != errAuthorizationSuccess) {
-		/* AuthorizationCreate really shouldn't fail. */
-		assert(NO);
-		self->_authRef = NULL;
-	}
-	
-	if (![self blessHelperWithLabel:@"com.volodyko.TimeMachineSchedulerHelper" error:&error]) {
+
+	if (![self blessHelperWithLabel:@kHelperIdentifier error:&error])
+	{
 		NSString *errorString = [NSString stringWithFormat:@"Something went wrong! %@ / %d", [error domain], (int) [error code] ];
 		NSLog(@"%@", errorString);
 		[self.connectionStatus setStringValue:errorString];
-	} else {
+	}
+	else
+	{
 		/* At this point, the job is available. However, this is a very
 		 * simple sample, and there is no IPC infrastructure set up to
 		 * make it launch-on-demand. You would normally achieve this by
@@ -50,19 +48,25 @@
 
 - (BOOL)blessHelperWithLabel:(NSString *)label error:(NSError **)errorPtr;
 {
+	BOOL socketExist = [[NSFileManager defaultManager] fileExistsAtPath:@kSocketPath];
+	if(socketExist && isCurrentVersion())
+	{
+		NSLog(@"Socket exist and current version is: %d.%d.%d", kVersionPart1, kVersionPart2, kVersionPart3);
+		return YES;
+	}
+	
 	BOOL result = NO;
 	NSError * error = nil;
 	
 	AuthorizationItem authItem		= { kSMRightBlessPrivilegedHelper, 0, NULL, 0 };
 	AuthorizationRights authRights	= { 1, &authItem };
 	AuthorizationFlags flags        =	kAuthorizationFlagDefaults |
-	kAuthorizationFlagInteractionAllowed |
-	kAuthorizationFlagPreAuthorize |
-	kAuthorizationFlagExtendRights;
+										kAuthorizationFlagInteractionAllowed |
+										kAuthorizationFlagPreAuthorize |
+										kAuthorizationFlagExtendRights;
 	
 	/* Obtain the right to install our privileged helper tool (kSMRightBlessPrivilegedHelper). */
-	OSStatus status = AuthorizationCopyRights(self->_authRef, &authRights, kAuthorizationEmptyEnvironment, flags, NULL);
-	
+	OSStatus status = AuthorizationCreate( &authRights, kAuthorizationEmptyEnvironment, flags, &_authRef);
 	if (status != errAuthorizationSuccess)
 	{
 		error = [NSError errorWithDomain:NSOSStatusErrorDomain code:status userInfo:nil];
@@ -101,6 +105,14 @@
 }
 
 - (IBAction)setTimeMachineInterval:(id)sender {
+	struct TimeMachineSchedullerMessage messageOut, messageIn;
+	initMessage(messageOut, TMS_PID);
+	if(sendMessage(&messageOut, &messageIn)) {
+		NSLog(@"Error send message");
+	}
+	int pid;
+	memcpy(&pid, messageIn.data, sizeof(pid));
+	NSLog(@"Helper PID is %i", pid);
 }
 
 @end

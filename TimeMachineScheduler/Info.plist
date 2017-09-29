@@ -29,7 +29,7 @@
 	<key>SMPrivilegedExecutables</key>
 	<dict>
 		<key>com.volodyko.TimeMachineSchedulerHelper</key>
-		<string>identifier "com.volodyko.TimeMachineSchedulerHelper" and anchor apple generic and certificate leaf[subject.CN] = "Mac Developer: vladymyrmoskalyuk@gmail.com (GL45ZGRP7W)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+		<string>identifier "com.volodyko.TimeMachineSchedulerHelper" and anchor apple generic and certificate leaf[subject.CN] = "Mac Developer: volodykomoskalyuk@gmail.com (F4329866ET)" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 	</dict>
 </dict>
 </plist>
