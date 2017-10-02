@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		0D372A1B1F7E2B3B00F8D90D /* Message.c in Sources */ = {isa = PBXBuildFile; fileRef = 0D372A191F7E2B3B00F8D90D /* Message.c */; };
 		0D372A1C1F7E303800F8D90D /* Message.c in Sources */ = {isa = PBXBuildFile; fileRef = 0D372A191F7E2B3B00F8D90D /* Message.c */; };
+		0D372A3B1F8267D700F8D90D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D372A3A1F8267D700F8D90D /* AppDelegate.m */; };
+		0D372A401F8267D700F8D90D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D372A3F1F8267D700F8D90D /* Assets.xcassets */; };
+		0D372A431F8267D700F8D90D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D372A411F8267D700F8D90D /* Main.storyboard */; };
+		0D372A461F8267D700F8D90D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D372A451F8267D700F8D90D /* main.m */; };
+		0D372A4B1F8267EC00F8D90D /* TimeMachineDaemon.app in Copy Daemon */ = {isa = PBXBuildFile; fileRef = 0D372A371F8267D700F8D90D /* TimeMachineDaemon.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0D372A4C1F8279BD00F8D90D /* Message.c in Sources */ = {isa = PBXBuildFile; fileRef = 0D372A191F7E2B3B00F8D90D /* Message.c */; };
 		D84F79811F7D47FB004C30D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D84F79801F7D47FB004C30D0 /* AppDelegate.m */; };
 		D84F79841F7D47FB004C30D0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D84F79831F7D47FB004C30D0 /* ViewController.m */; };
 		D84F79861F7D47FB004C30D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D84F79851F7D47FB004C30D0 /* Assets.xcassets */; };
@@ -18,7 +24,7 @@
 		D84F79A41F7D4CFE004C30D0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D84F79A31F7D4CFE004C30D0 /* Security.framework */; };
 		D84F79A61F7D4D04004C30D0 /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D84F79A51F7D4D04004C30D0 /* ServiceManagement.framework */; };
 		D84F79A81F7D4D0C004C30D0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D84F79A71F7D4D0C004C30D0 /* Cocoa.framework */; };
-		D84F79AB1F7D5699004C30D0 /* com.volodyko.TimeMachineSchedulerHelper in CopyFiles */ = {isa = PBXBuildFile; fileRef = D84F79971F7D484C004C30D0 /* com.volodyko.TimeMachineSchedulerHelper */; };
+		D84F79AB1F7D5699004C30D0 /* com.volodyko.TimeMachineSchedulerHelper in Copy Files */ = {isa = PBXBuildFile; fileRef = D84F79971F7D484C004C30D0 /* com.volodyko.TimeMachineSchedulerHelper */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +38,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		0D372A2E1F82516E00F8D90D /* Copy Daemon */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				0D372A4B1F8267EC00F8D90D /* TimeMachineDaemon.app in Copy Daemon */,
+			);
+			name = "Copy Daemon";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D84F79951F7D484C004C30D0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -41,14 +58,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
-		D84F79A91F7D4D19004C30D0 /* CopyFiles */ = {
+		D84F79A91F7D4D19004C30D0 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = Contents/Library/LaunchServices;
 			dstSubfolderSpec = 1;
 			files = (
-				D84F79AB1F7D5699004C30D0 /* com.volodyko.TimeMachineSchedulerHelper in CopyFiles */,
+				D84F79AB1F7D5699004C30D0 /* com.volodyko.TimeMachineSchedulerHelper in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -56,6 +74,14 @@
 /* Begin PBXFileReference section */
 		0D372A191F7E2B3B00F8D90D /* Message.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Message.c; sourceTree = "<group>"; };
 		0D372A1A1F7E2B3B00F8D90D /* Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		0D372A371F8267D700F8D90D /* TimeMachineDaemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeMachineDaemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D372A391F8267D700F8D90D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0D372A3A1F8267D700F8D90D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0D372A3F1F8267D700F8D90D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0D372A421F8267D700F8D90D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0D372A441F8267D700F8D90D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D372A451F8267D700F8D90D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0D372A471F8267D700F8D90D /* TimeMachineDaemon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimeMachineDaemon.entitlements; sourceTree = "<group>"; };
 		D84F797C1F7D47FB004C30D0 /* TimeMachineScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeMachineScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D84F797F1F7D47FB004C30D0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D84F79801F7D47FB004C30D0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -76,6 +102,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0D372A341F8267D700F8D90D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D84F79791F7D47FB004C30D0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -105,12 +138,27 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		0D372A381F8267D700F8D90D /* TimeMachineDaemon */ = {
+			isa = PBXGroup;
+			children = (
+				0D372A391F8267D700F8D90D /* AppDelegate.h */,
+				0D372A3A1F8267D700F8D90D /* AppDelegate.m */,
+				0D372A3F1F8267D700F8D90D /* Assets.xcassets */,
+				0D372A411F8267D700F8D90D /* Main.storyboard */,
+				0D372A441F8267D700F8D90D /* Info.plist */,
+				0D372A451F8267D700F8D90D /* main.m */,
+				0D372A471F8267D700F8D90D /* TimeMachineDaemon.entitlements */,
+			);
+			path = TimeMachineDaemon;
+			sourceTree = "<group>";
+		};
 		D84F79731F7D47FA004C30D0 = {
 			isa = PBXGroup;
 			children = (
 				0D372A181F7E2B1B00F8D90D /* Shared */,
 				D84F797E1F7D47FB004C30D0 /* TimeMachineScheduler */,
 				D84F79981F7D484C004C30D0 /* TimeMachineHelper */,
+				0D372A381F8267D700F8D90D /* TimeMachineDaemon */,
 				D84F797D1F7D47FB004C30D0 /* Products */,
 				D84F79A21F7D4CFE004C30D0 /* Frameworks */,
 			);
@@ -121,6 +169,7 @@
 			children = (
 				D84F797C1F7D47FB004C30D0 /* TimeMachineScheduler.app */,
 				D84F79971F7D484C004C30D0 /* com.volodyko.TimeMachineSchedulerHelper */,
+				0D372A371F8267D700F8D90D /* TimeMachineDaemon.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,6 +213,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0D372A361F8267D700F8D90D /* TimeMachineDaemon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0D372A481F8267D700F8D90D /* Build configuration list for PBXNativeTarget "TimeMachineDaemon" */;
+			buildPhases = (
+				0D372A331F8267D700F8D90D /* Sources */,
+				0D372A341F8267D700F8D90D /* Frameworks */,
+				0D372A351F8267D700F8D90D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TimeMachineDaemon;
+			productName = TimeMachineDaemon;
+			productReference = 0D372A371F8267D700F8D90D /* TimeMachineDaemon.app */;
+			productType = "com.apple.product-type.application";
+		};
 		D84F797B1F7D47FB004C30D0 /* TimeMachineScheduler */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D84F79901F7D47FB004C30D0 /* Build configuration list for PBXNativeTarget "TimeMachineScheduler" */;
@@ -171,7 +237,8 @@
 				D84F79781F7D47FB004C30D0 /* Sources */,
 				D84F79791F7D47FB004C30D0 /* Frameworks */,
 				D84F797A1F7D47FB004C30D0 /* Resources */,
-				D84F79A91F7D4D19004C30D0 /* CopyFiles */,
+				D84F79A91F7D4D19004C30D0 /* Copy Files */,
+				0D372A2E1F82516E00F8D90D /* Copy Daemon */,
 			);
 			buildRules = (
 			);
@@ -209,6 +276,10 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Vladymyr Moskalyuk";
 				TargetAttributes = {
+					0D372A361F8267D700F8D90D = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
 					D84F797B1F7D47FB004C30D0 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -234,11 +305,21 @@
 			targets = (
 				D84F797B1F7D47FB004C30D0 /* TimeMachineScheduler */,
 				D84F79961F7D484C004C30D0 /* TimeMachineHelper */,
+				0D372A361F8267D700F8D90D /* TimeMachineDaemon */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0D372A351F8267D700F8D90D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D372A401F8267D700F8D90D /* Assets.xcassets in Resources */,
+				0D372A431F8267D700F8D90D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D84F797A1F7D47FB004C30D0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -251,6 +332,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0D372A331F8267D700F8D90D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D372A461F8267D700F8D90D /* main.m in Sources */,
+				0D372A4C1F8279BD00F8D90D /* Message.c in Sources */,
+				0D372A3B1F8267D700F8D90D /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D84F79781F7D47FB004C30D0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -282,6 +373,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		0D372A411F8267D700F8D90D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0D372A421F8267D700F8D90D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		D84F79871F7D47FB004C30D0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -293,6 +392,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0D372A491F8267D700F8D90D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TimeMachineDaemon/TimeMachineDaemon.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8DB99J4S4D;
+				INFOPLIST_FILE = TimeMachineDaemon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.volodyko.TimeMachineDaemon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		0D372A4A1F8267D700F8D90D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TimeMachineDaemon/TimeMachineDaemon.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8DB99J4S4D;
+				INFOPLIST_FILE = TimeMachineDaemon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.volodyko.TimeMachineDaemon;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		D84F798E1F7D47FB004C30D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -481,6 +616,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0D372A481F8267D700F8D90D /* Build configuration list for PBXNativeTarget "TimeMachineDaemon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D372A491F8267D700F8D90D /* Debug */,
+				0D372A4A1F8267D700F8D90D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D84F79771F7D47FA004C30D0 /* Build configuration list for PBXProject "TimeMachineScheduler" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -134,7 +134,36 @@
 }
 
 - (IBAction)disableBackup:(id)sender {
-	[self sendMessageToHelper:TMS_DISABLE_BACKAUP];
+	//[self sendMessageToHelper:TMS_DISABLE_BACKAUP];
+	[self createLaunchdPlistFile];
+}
+
+- (void)createLaunchdPlistFile {
+	
+	NSString *launchPath = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"Contents/Library/LoginItems/TimeMachineDaemon.app"];
+
+	NSArray *array = @[@"open",@"-a",launchPath];
+	NSString *label = @"com.volodyko.TimeMachineDaemon";
+	NSNumber *interval = [NSNumber numberWithInt:300];
+	
+	NSDictionary * innerDict = [NSDictionary dictionaryWithObjects:
+				 [NSArray arrayWithObjects: label, array, interval, nil]
+											forKeys:[NSArray arrayWithObjects:@"Label",@"ProgramArguments", @"StartInterval", nil]];
+	
+	NSError *error = nil;
+	
+	NSData *plist = [NSPropertyListSerialization dataWithPropertyList:innerDict format:NSPropertyListXMLFormat_v1_0 options:0 error:&error];
+	
+	NSString *libraryPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+	libraryPath = [libraryPath stringByAppendingPathComponent:@"LaunchAgents"];
+	libraryPath = [libraryPath stringByAppendingPathComponent:@"com.volodyko.TimeMachineDaemon.plist"];
+	BOOL writeStatus = [plist writeToFile: libraryPath
+								 options: NSDataWritingAtomic
+								   error: &error];
+	if (!writeStatus) {
+		NSLog (@"error writing to file: %@", error);
+		return;
+	}
 }
 
 @end

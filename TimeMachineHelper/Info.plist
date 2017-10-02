@@ -15,6 +15,7 @@
 	<key>SMAuthorizedClients</key>
 	<array>
 		<string>identifier &quot;com.volodyko.TimeMachineScheduler&quot; and anchor apple generic and certificate leaf[subject.CN] = &quot;Mac Developer: volodykomoskalyuk@gmail.com (F4329866ET)&quot; and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
+		<string>identifier &quot;com.volodyko.TimeMachineDaemon&quot; and anchor apple generic and certificate leaf[subject.CN] = &quot;Mac Developer: volodykomoskalyuk@gmail.com (F4329866ET)&quot; and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */</string>
 	</array>
 </dict>
 </plist>
